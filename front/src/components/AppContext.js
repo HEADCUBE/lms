@@ -37,7 +37,7 @@ export function AppProvider({children}) {
   function removeCartProduct(indexToRemove) {
     setCartProducts(prevCartProducts => {
       const newCartProducts = prevCartProducts
-        .filter((v,index) => index !== indexToRemove);
+          .filter((v,index) => index !== indexToRemove);
       saveCartProductsToLocalStorage(newCartProducts);
       return newCartProducts;
     });
@@ -60,13 +60,13 @@ export function AppProvider({children}) {
   }
 
   return (
-    <SessionProvider>
-      <CartContext.Provider value={{
-        cartProducts, setCartProducts,
-        addToCart, removeCartProduct, clearCart,
-      }}>
-        {children}
-      </CartContext.Provider>
-    </SessionProvider>
+      <SessionProvider>
+        <CartContext.Provider value={{
+          cartProducts, setCartProducts,
+          addToCart, removeCartProduct, clearCart,
+        }}>
+          {children}
+        </CartContext.Provider>
+      </SessionProvider>
   );
 }
